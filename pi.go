@@ -1,10 +1,8 @@
-package pitomate
+package main
 
 import (
 	"fmt"
 	MQTT "git.eclipse.org/gitroot/paho/org.eclipse.paho.mqtt.golang.git"
-	"os"
-	"time"
 )
 
 var f MQTT.MessageHandler = func(client *MQTT.Client, msg MQTT.Message) {
@@ -14,4 +12,5 @@ var f MQTT.MessageHandler = func(client *MQTT.Client, msg MQTT.Message) {
 
 func main() {
 	opts := MQTT.NewClientOptions().AddBroker("")
+	fmt.Println(opts)
 }
