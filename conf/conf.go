@@ -1,4 +1,4 @@
-package pitomate
+package conf
 
 import (
 	"encoding/json"
@@ -12,8 +12,8 @@ type Configuration struct {
 	Hostname   []string
 }
 
-func getConf() Configuration {
-	file, _ := os.Open("pitomate.conf")
+func GetConf() Configuration {
+	file, _ := os.Open("/opt/pitomate.conf")
 	decoder := json.NewDecoder(file)
 	configuration := Configuration{}
 	err := decoder.Decode(&configuration)
