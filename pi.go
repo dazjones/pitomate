@@ -13,5 +13,5 @@ var f MQTT.MessageHandler = func(client *MQTT.Client, msg MQTT.Message) {
 }
 
 func main() {
-
+	opts := MQTT.NewClientOptions().AddBroker("")
 }
