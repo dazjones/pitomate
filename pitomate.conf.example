@@ -1,5 +1,4 @@
 {
-    "broker_url" : "",
-    "broker_port" : "1833",
-    "hostname" : ""
+    "Broker" : "tcp://<host>:1883",
+    "Hostname" : "<hostname>"
 }

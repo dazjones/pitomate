@@ -7,13 +7,12 @@ import (
 )
 
 type Configuration struct {
-	BrokerUrl  []string
-	BrokerPort []string
-	Hostname   []string
+	Broker   string
+	Hostname string
 }
 
 func GetConf() Configuration {
-	file, _ := os.Open("/opt/pitomate.conf")
+	file, _ := os.Open("pitomate.conf")
 	decoder := json.NewDecoder(file)
 	configuration := Configuration{}
 	err := decoder.Decode(&configuration)
