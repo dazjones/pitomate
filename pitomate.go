@@ -9,8 +9,14 @@ import (
 )
 
 var f MQTT.MessageHandler = func(client *MQTT.Client, msg MQTT.Message) {
-	fmt.Printf("TOPIC: %s\n", msg.Topic())
-	fmt.Printf("MSG: %s\n", msg.Payload())
+	sub := subscriptions.Get(msg.Topic())
+	fmt.Println(sub)
+
+	if msg.Payload() == "ON" {
+		// Turn on
+	} else {
+		// Turn off
+	}
 }
 
 func main() {
