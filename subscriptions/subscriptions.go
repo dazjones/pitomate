@@ -1,9 +1,7 @@
 package subscriptions
 
 import (
-	_ "github.com/go-sql-driver/mysql"
-	"database/sql"
-	"strings"
+	dbtools "github.com/dazjones/pitomate/dbtools"
 	"github.com/dazjones/pitomate/conf"
 )
 
@@ -19,11 +17,7 @@ type Subscription struct {
 func GetAll() []Subscription {
 	cnf := conf.GetConf()
 
-	conStrings := []string{cnf.MySQLUser, ":", cnf.MySQLPass, "@tcp(",
-		cnf.MySQLHost, ":", cnf.MySQLPort ,")/", cnf.MySQLName, "?charset=utf8"}
-
-	db, err := sql.Open("mysql", strings.Join(conStrings, ""))
-	checkErr(err)
+	db :=  dbtools.GetConnection()
 
 	rows, err := db.Query("SELECT * FROM device_list WHERE hostname = ?", cnf.Hostname)
 	checkErr(err)
