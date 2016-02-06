@@ -25,7 +25,7 @@ func main() {
 		panic(token.Error())
 	}
 
-	subs := subscriptions.Get()
+	subs := subscriptions.GetAll()
 
 	for _, sub := range subs {
 		if token := c.Subscribe(sub.Name, 0, nil); token.Wait() && token.Error() != nil {

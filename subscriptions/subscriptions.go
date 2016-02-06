@@ -16,7 +16,7 @@ type Subscription struct {
 	Hostname string
 }
 
-func Get() []Subscription {
+func GetAll() []Subscription {
 	cnf := conf.GetConf()
 
 	conStrings := []string{cnf.MySQLUser, ":", cnf.MySQLPass, "@tcp(",
