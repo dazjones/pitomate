@@ -28,12 +28,10 @@ func main() {
 	subs := subscriptions.Get()
 
 	for _, sub := range subs {
-		fmt.Println(sub)
-	}
-
-	if token := c.Subscribe("/home/Light_LivingRoomLamp", 0, nil); token.Wait() && token.Error() != nil {
-		fmt.Println(token.Error())
-		os.Exit(1)
+		if token := c.Subscribe(sub.Name, 0, nil); token.Wait() && token.Error() != nil {
+			fmt.Println(token.Error())
+			os.Exit(1)
+		}
 	}
 
 	for {
