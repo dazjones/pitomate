@@ -9,6 +9,11 @@ import (
 type Configuration struct {
 	Broker   string
 	Hostname string
+	MySQLUser string
+	MySQLPass string
+	MySQLHost string
+	MySQLName string
+	MySQLPort string
 }
 
 func GetConf() Configuration {

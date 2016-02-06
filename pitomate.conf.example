@@ -1,4 +1,9 @@
 {
     "Broker" : "tcp://<host>:1883",
-    "Hostname" : "<hostname>"
+    "Hostname" : "<hostname>",
+    "MySQLUser" : " ",
+    "MySQLPass" : " ",
+    "MySQLHost" : " ",
+    "MySQLName" : " ",
+    "MySQLPort" : "3306"
 }
