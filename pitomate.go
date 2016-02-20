@@ -6,16 +6,17 @@ import (
 	"github.com/dazjones/pitomate/conf"
 	"github.com/dazjones/pitomate/subscriptions"
 	"os"
+	"github.com/dazjones/pitomate/djio"
 )
 
 var f MQTT.MessageHandler = func(client *MQTT.Client, msg MQTT.Message) {
 	sub := subscriptions.Get(msg.Topic())
 	fmt.Println(sub)
 
-	if msg.Payload() == "ON" {
-		// Turn on
+	if string(msg.Payload()) == "ON" {
+		djio.PinHigh(sub.Pin)
 	} else {
-		// Turn off
+		djio.PinLow(sub.Pin)
 	}
 }
 
